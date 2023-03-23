@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    <link rel="stylesheet" href="../CSS/checkoutpage.css">
+    
+</head>
+
+<body onload="clearCart()">
+
+    <nav>
+        <div class="logo">
+            ZipTip
+        </div>
+    </nav>
+    <div id="bill_container">
+        <div id="left">
+            <h3>we hope, You had a good Ordering Experience</h3>
+            <img src="/boy-exploding-party-popper.png" alt="">
+            <a href="/HTML/AllRestaurent.html">I want to Order More</a>
+        </div>
+        <div id="bill">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    const uniqueKey = localStorage.getItem('uniqueKey');
+
+    fetch(`https://ziptip-production.up.railway.app/getBill/${uniqueKey}`, {
+        mode : 'no-cors',
+        method: 'GET'
+    }).then(res => res.json())
+        .then(data => {
+            console.log("Bill", data);
+            appendBill(data);
+        })
+        .catch(err => console.log(err));
+
+
+    function appendBill(el) {
+        let uuid= (localStorage.getItem('uniqueKey'));
+        console.log('uuid', uniqueKey);
+        if (!uuid) {
+            let container = document.querySelector('#bill_container');
+            container.innerHTML = " ";
+            let div = document.createElement('div');
+            let h3 = document.createElement('p');
+            h3.innerText = `Hi food lover..! You are not Logged in Please Login First`;
+
+            icon = document.createElement('img');
+            icon.src = '/caution-sign.png';
+            icon.style.width = '30%';
+            icon.style.animation = 'spin 15s linear infinite';
+
+            let btn = document.createElement('button');
+            btn.innerText = 'Yes! i want to Log in';
+            btn.addEventListener('click', () => {
+                window.location.href = '/index.html';
+                console.log('clicked')
+            })
+            div.style.width = '70%';
+            div.style.display = 'flex';
+            div.style.flexDirection = 'column';
+            div.style.justifyContent = 'center';
+            div.style.alignItems = 'center';
+            btn.style.width = '30%'
+            btn.style.border = 'none';
+            btn.style.padding = '0.8rem 3rem';
+            btn.style.borderRadius = '0.5rem';
+            btn.style.fontSize = '1rem';
+            btn.style.fontWeight = '600';
+            btn.style.backgroundColor = '#ccb0e675';
+            btn.style.color = '#6f4399';
+            btn.style.cursor = 'pointer';
+
+
+
+
+
+            div.append(h3, icon, btn)
+            container.append(div)
+            console.log("canceled")
+            return;
+        }
+        let container = document.querySelector('#bill');
+        container.innerHTML = "";
+
+        let div = document.createElement('div');
+
+        let rName;
+        // data.forEach(el => {
+        let cartDiv = document.createElement('div');
+        cartDiv.setAttribute('class', 'cartDiv');
+        el.cartList.forEach(cart => {
+            item_div = document.createElement('div');
+            let productName = document.createElement('p');
+            productName.innerText = cart.itemName;
+
+            let productPrice = document.createElement('h4');
+            productPrice.innerText = `₹ ${cart.itemPrice}`;
+
+            item_div.append(productName, productPrice)
+
+            rName = cart.resturentName;
+
+
+
+            cartDiv.append(item_div);
+        })
+        let RestaurentName = document.createElement('h3');
+        RestaurentName.innerText = `Restaurent : ${rName}`;
+
+        let TotalOrder = document.createElement('h2');
+        TotalOrder.innerText = `Total : ₹ ${el.cartTotalPrice}`;
+
+        let UserName = document.createElement('h2');
+        UserName.innerText = el.userName;
+
+        let deliverTo = document.createElement('p');
+        deliverTo = `Deliver To : `;
+
+        let address = document.createElement('p');
+        address.innerText = `${el.buildingNo} ${el.buildingName}, ${el.landMark}, ${el.state}, ${el.country}, ${el.pincode}`;
+
+        let contact = document.createElement('p');
+        contact.innerText = `Mobile: ${el.userMobile}`;
+        let h1 = document.createElement('h1');
+        h1.innerText = 'Thank You';
+
+        div.append(h1, cartDiv, TotalOrder, deliverTo, UserName, address, contact);
+        container.append(div);
+
+
+    }
+
+
+    function clearCart() {
+        for (let key in localStorage) {
+            if (key.includes("cart")) {
+                localStorage.removeItem(key);
+            }
+        }
+    }
+</script>

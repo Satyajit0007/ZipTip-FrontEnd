@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Registration</title>
+    <link rel="stylesheet" href="../CSS/nav.css">
+    <link rel="stylesheet" href="../CSS/registration.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" rel="stylesheet">
+    
+</head>
+
+<body onload="reload()">
+
+    <nav>
+        <div class="logo">
+            ZipTip
+            <div class="bubble8"></div>
+        </div>
+
+        <div>
+            <a href="#"></a>
+            <a href="../HTML/product.html">Products</a>
+            <a href="#" onclick="toggleLogin()" id="login-nav">Register</a>
+        </div>
+    </nav>
+
+    <div class="form-container">
+
+
+        <div id="left">
+            <h1>Welcome to ZipTip</h1>
+            <div class="typewriter">
+                <p>Welcome to ZipTip, your ultimate online food delivery app!</p>
+                <p>With ZipTip, you can easily order your favorite meals from </p>
+                <p>the comfort of your own home. </p>
+            </div>
+        </div>
+        <div class="bubble1"></div>
+        <div class="bubble2"></div>
+        <div class="bubble3"></div>
+        <div class="bubble4"></div>
+        <div class="bubble5"></div>
+        <div class="bubble6"></div>
+
+
+        <div id="registration-form" style="display: none;">
+
+            <form  id="register-data" action="">
+                <h2>Register</h2>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pass">Password</label>
+                    <input type="password" id="pass" name="pass" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpass">Confirm Password</label>
+                    <input type="password" id="cpass" name="cpass" required>
+                </div>
+
+                <button type="submit" class="success-btn" onclick="registerBtn(event)">Register</button>
+
+                <p>Already a User? <spna style="color
+                :blueviolet; cursor: pointer;" onclick="login()"> Log in</spna></p>
+            </form>
+
+        </div>
+
+
+        <!------------------ Log-IN Form ----------------------->
+
+        <div id="login-form"  style="margin-bottom: 5rem;">
+ 
+            <form id="login-data" action="">
+                <h2>Log In</h2>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="login_phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pass">Password</label>
+                    <input type="password" id="login_pass" name="pass" required>
+                </div>
+
+              
+
+                <button type="submit" class="success-btn" onclick="loginBtn(event)">Log In</button>
+                <p>New User ? <spna style="color
+                    :blueviolet; cursor: pointer;" onclick="register()"> Register</spna></p>
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="../Script/registration.js"></script>
+    <script src="../Script/login.js"></script>
+    <script src="../Script/allRestauernt.js"></script>
+</body>
+
+
+</script>
+
+</html>

@@ -1,0 +1,138 @@
+*{
+    font-family: 'poppins';
+}
+
+header {
+  position: absolute;
+  top:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+
+}
+
+#background-image{
+    background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+    height: 85vh;
+    filter: blur(3px);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+   
+}
+
+
+nav {
+    position: absolute;
+    display: flex;
+    top: 2rem;
+    justify-content: space-between;
+    width: 90%;
+  
+}
+
+nav a {
+  margin: 0 10px;
+  color: #fff;
+  font-weight: bolder;
+  font-size:1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  background-color: rgba(145, 136, 136, 0.288);
+  cursor: pointer;
+  
+}
+
+
+.logo {
+  font-size: 6.2rem;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  padding:  0.6rem 0.5rem;
+  background: linear-gradient(45deg, rgb(255, 40, 172) 50%  ,#ffffff 55% ) ;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 3;
+}
+
+/* #logo-back{
+/* background-color: rgba(0, 0, 0, 0.315); */
+/* border-radius: 1rem;
+padding: 0rem 2rem;
+line-height: 6.2rem;
+display: flex;
+justify-content: center;
+align-items: center;
+} */ 
+
+
+
+#search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-item {
+  width: 35rem;
+  height: 2.3rem;
+  border-radius: 20px;
+  border: none;
+  padding: 1rem;
+}
+
+
+#product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  margin-top: 30px;
+  padding: 3rem;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.product {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  cursor: pointer;
+  transition: .2s all ease-in-out;
+}
+.product:hover{
+  transform: scale(1.1);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 5px;
+  height: 70%;
+  display: grid;
+
+}
+
+.product h4 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: gray;
+}
+
+.product h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: green;
+}
+ 

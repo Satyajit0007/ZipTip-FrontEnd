@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Payment</title>
+  <link rel="stylesheet" href="../CSS/payment.css">
+ 
+</head>
+
+<body>
+  <nav> Secure Payment</nav>
+  <div id="payment_page">
+    <div id="address_container" style="width: 70%; ">
+      <img src="/house-location.png " style="width:80px;  position: absolute; top: -0.5rem;left:1rem;" alt="">
+      <h3 style="margin-left:5rem">  Choose a delivery address</h3>
+      <p style="margin-left:5rem">Multiple addresses in this location</p>
+      <div id="address" style="margin-left:1rem; margin-top: 1rem;">
+        <!-- <div class="add1"></div>
+        <div class="add1"></div>
+        <div class="add1"></div>
+        <div class="add1"></div>
+        <div class="add1"></div> -->
+
+        <!-- let div2 = document.createElement('div');
+        let btn = document.createElement('button');
+        btn.innerText = 'Add Address';
+        btn.addEventListener('click',popAddress);
+        div2.append(btn);
+        address_container.append(div2); -->
+
+         <div class="addAddress_btn">
+          <button onclick="popAddress()">Add New Address</button>
+         </div>
+
+
+      </div>
+      
+      <div id="payment">
+        <img src="/cash-wallet.png " style="width:80px;  position: relative; top:3.5rem;left:-1rem;" alt="">
+        <h3 style="margin-left:4rem;">  Choose payment method</h3>
+        <div id="payment_method" style="margin-left: 2rem;margin-top: 2rem;">
+          <div id="payment_type">
+            <div onclick="gpay_btn()" style="background: url(/Untitled\ design.png);background-size: cover;">
+            
+            
+            </div>
+            <div onclick="phonePay_btn()" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7J7DZl2rGzLh4adXCVwW6zTA724O1y27X4Q&usqp=CAU);  background-size: cover;">
+              
+            </div>
+            <div onclick="payTm_btn()"  style="background: url(/paytm\ background.png);  background-size: cover;">
+            </div>
+            <div onclick="cod_btn()"  style="background: url(/COD\ back-555.gif);  background-size: cover;"></div>
+          </div>
+          <div id="selected_payment">
+            <div id="paymentDetails">
+              <div style="display: flex; justify-content:center;align-items: center;">
+                
+                <img src="../lock gif.gif" alt="">
+                <p style="padding: 1rem 2rem;font-weight: 500;">Easy, Quick and Secure Payment</p>
+              </div>
+             
+              <div style="display: flex; justify-content: center;align-items: center; margin-top: 6rem;">
+                <p style=" color : #fff;padding: 1rem 2rem; font-weight: 500;">Fastest Delivery at Your Door Step</p>
+                <img src="../delevery gif.gif" alt="">
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="cart" ></div>
+  </div>
+
+
+  <form action="" id="address_data">
+    <div style="display : flex; justify-content: space-between; align-items: center; "> 
+      <h3>Add New Address</h3>
+      <p style="font-size: 2rem;" onclick="closeAddress()">X</p>    
+    </div>
+   
+    
+    <div class="form-group">
+      <label for="buildingNo">Building No</label>
+      <input type="text" id="buildingNo" name="buildingNo" required>
+    </div>
+
+    <div class="form-group">
+      <label for="buildingName">Building Name</label>
+      <input type="text" id="buildingName" name="buildingName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="landMark">Landmark</label>
+      <input type="text" id="landMark" name="landMark" required>
+    </div>
+   
+    <div class="form-group">
+      <label for="pincode">Pincode</label>
+      <input type="text" id="pincode" name="pincode" required>
+    </div>
+
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" id="state" name="state" required>
+    </div>
+
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input type="text" id="country" name="country" value = "India" required>
+    </div>
+
+    <div class="form-group">
+      <label for="addressType">Address Type</label>
+      <select name="addressType" id="addressType">
+        <option value="Home">Home</option>
+        <option value="Office">Office</option>
+      </select>
+    </div>
+    <button type="submit" class="success-btn" onclick="addressBtn(event)">Add New Address</button>
+  </form>
+
+
+  <!-- <div id="appendData">
+     <div id="paymentDetails">
+      helllooooo addddressss
+     </div> -->
+   
+  <!-- </div> -->
+
+</body>
+
+</html>
+
+<script>
+
+  ////////////////////  Cart JavaScript ///////////////////
+
+  const restaurent_item_api = `https://ziptip-production.up.railway.app/allProduct/${localStorage.getItem('restaurentId')}`
+
+  fetch(restaurent_item_api, {
+    mode : 'no-cors',
+    method: "GET",
+  })
+    .then(res => res.json())
+    .then(data => {
+
+      append(data)
+    })
+    .catch(err => console.log(err));
+
+  let itemList = document.querySelector("#item-list");
+
+  let append = (data) => {
+    itemList.innerHTML = "";
+    data.forEach(el => {
+      let img = document.createElement('img');
+      img.src = "https://t3.ftcdn.net/jpg/01/96/80/24/360_F_196802485_VQxk0qmyPGTq56rKYXGikVGApD3A7v5T.jpg";
+
+
+
+      let title = document.createElement('h3');
+      title.innerText = el.itemName;
+
+
+
+      let desc = document.createElement('p');
+      desc.innerText = el.itemDescription;
+
+      let price = document.createElement('h3');
+      price.innerText = `₹${el.itemPrice}`;
+      price.setAttribute('class', 'white-back')
+
+      let img_div = document.createElement('div');
+      img_div.setAttribute('id', "image_div");
+      img_div.append(img, btn);
+
+      let item_desc = document.createElement('div');
+      item_desc.setAttribute('id', 'item_desc');
+      item_desc.append(title, desc, price)
+
+      let div = document.createElement('div');
+      div.append(item_desc, img_div);
+      div.setAttribute('id', 'list')
+
+      itemList.append(div);
+    });
+  }
+
+
+
+  let cartList = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+  function cartAppend(data) {
+
+    const existingData = cartList.find(el => el.itemId === data.itemId);
+
+    if (!existingData) {
+      let uuid = localStorage.getItem('uniqueKey')
+      cartList.push({ ...data, qnty: 1, total_price: data.itemPrice, key: uuid });
+      localStorage.setItem('cart', JSON.stringify(cartList));
+
+      updateCartUI();
+    } else {
+      alert("Item already present in the cart");
+    }
+  }
+
+let pay_price;
+
+  function updateCartUI() {
+
+    let cart_container = document.querySelector("#cart");
+    let heading = document.createElement('h1');
+    heading.innerText = "Cart";
+
+    cart_container.innerHTML = "";
+    let div = document.createElement('div');
+    div.setAttribute('id', "cart_item")
+    let item_count = document.createElement('p');
+
+    item_count.innerText = cartList.length;
+    let total_price = 0;
+    total_individual_price = 0;
+
+    cartList.forEach(el => {
+
+      let name = document.createElement('p');
+      name.innerText = el.itemName;
+
+      let price = document.createElement('p');
+      let item_number = document.createElement('div');
+      item_number.setAttribute('id', 'item_number');
+      let data = JSON.parse(localStorage.getItem('cart'));
+      data.forEach(element => {
+        if (el.itemId === element.itemId) {
+          item_number.innerText = element.qnty;
+          price.innerText = `₹ ${el.itemPrice}`;
+          price.setAttribute('class', 'cart_price');
+          total_individual_price = element.itemPrice;
+        }
+      })
+
+
+
+      total_price += total_individual_price;
+
+      let btn_div = document.createElement('div');
+      btn_div.append(item_number);
+      btn_div.setAttribute('id', 'btn_div');
+
+      let div3 = document.createElement('div');
+      div3.append(name, btn_div, price);
+      div.append(div3);
+    });
+
+    cartUpdate();
+   
+    function cartUpdate() {
+      let new_total_price = total_price;
+
+      cart_container.innerHTML = " ";
+      let div1 = document.createElement('div');
+      
+      let icon = document.createElement('img');
+      icon.src = '/bags-bucket.png';
+      icon.style.width= '50%';
+      icon.style.marginTop = '50%';
+      icon.style.marginLeft = "25%"
+
+      let p  = document.createElement('p');
+      p.innerText = 'Total';
+
+      let h3 = document.createElement('p');
+      h3.innerText = `₹${new_total_price}`;
+
+      div1.append(p,h3);
+
+      div1.setAttribute('class','total_price');
+      cart_container.append(
+        heading,
+        `Items(${cartList.length})`,
+        div,
+       div1,icon
+      );
+      pay_price = new_total_price;
+    }
+  }
+  updateCartUI();
+
+
+  /////////////////////   Cart JavaScript End   ////////////////////
+
+
+  //////////////////// Address JavaScript Satrt /////////////////////
+
+ 
+  
+
+
+  let array = [];
+  let addressObj = {
+    address : array 
+      }
+  
+
+function addressBtn(e){
+  e.preventDefault();
+  let form = document.querySelector("#address_data");
+  let buildingNo = form.buildingNo.value;
+  let buildingName = form.buildingName.value;
+  let landMark = form.landMark.value;
+  let pincode = form.pincode.value;
+  let state = form.state.value;
+  let country = form.country.value;
+  let addressType = form.addressType.value;
+  
+  array.push(new Address(buildingNo,buildingName,landMark,pincode,state,country,addressType));
+ 
+  document.querySelector('#address_data').style.left = '-100%';
+  updateAddressUI();
+}
+
+function Address(bno,bname,lm,pc,st,cntry,at){
+  this.buildingNo = bno;
+  this.buildingName = bname;
+  this.landMark = lm;
+  this.pincode = pc;
+  this.state = st;
+  this.country = cntry;
+  this.addressType = at;
+}
+
+
+
+
+
+updateAddressUI();
+  
+
+
+
+  function updateAddressUI() {
+    const uniqueKey = localStorage.getItem('uniqueKey');
+
+    console.log(uniqueKey)
+    const address_api = `https://ziptip-production.up.railway.app/users/address?key=${uniqueKey}`;
+    fetch(address_api, {
+      mode : 'no-cors',
+      method: 'PUT',
+      body : JSON.stringify(addressObj),
+      headers: {
+            "Content-Type": "application/json"
+          }
+
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data.address);
+        appendAddress(data.address);
+
+      })
+      .catch(err => console.log(err));
+  }
+
+  function appendAddress(data) {
+    let address_container = document.querySelector('#address');
+    address_container.innerHTML = "";
+ 
+    data.forEach(el => {
+              
+          let div = document.createElement('div');
+          div.setAttribute('class','addressDiv');
+         
+          div.addEventListener('click',()=>{
+            document.querySelectorAll('.addressDiv').forEach(d => {
+            d.style.background = '';
+            d.style.color = '';
+            d.style.opacity = 0.1;
+            
+      });
+
+           // Apply the styling only to the clicked div
+           localStorage.setItem('selectedAddress', JSON.stringify(el));
+           div.style.background = '#6a3c97';
+           div.style.color = '#fff';
+           div.style.opacity = 1;
+           div.style.transform = 'scale(1.1)';
+           let icon = document.createElement('img');
+           icon.src = '/macos-home-logo.png';
+           icon.style.width = '50px';
+           icon.style.height = "50px";
+           icon.style.top = '0px';
+           icon.style.left = '0px'
+           icon.style.position = 'absolute'
+           div.append(icon)
+
+
+          })
+          
+          let landmark = document.createElement('p');
+          landmark.innerText = `${el.buildingNo}, ${el.landMark}, ${el.buildingName},  ${el.state},${el.pincode}`;
+          let addresstype  = document.createElement('p');
+          addresstype.style.fontWeight = '700';
+          addresstype.innerText = el.addressType;
+          
+          div.append(landmark,addresstype);
+          address_container.append(div);
+
+    })
+          let div2 = document.createElement('div');
+          let btn = document.createElement('button');
+          btn.innerText = 'Add New Address';
+          div2.setAttribute('class', "addAddress_btn")
+          btn.addEventListener('click',popAddress);
+          div2.append(btn);
+          address_container.append(div2);
+  }
+
+  function popAddress(){
+    document.querySelector('#address_data').style.left = '0%';
+  }
+
+  function closeAddress(){
+    document.querySelector('#address_data').style.left = '-100%';
+  }
+
+
+  function gpay_btn(){
+
+    let container = document.querySelector("#paymentDetails");
+    container.innerHTML = " ";
+    let div = document.createElement('div');
+    let logo = document.createElement('img');
+    logo.src="/Untitled\ design.png";
+    
+    let upi_id = document.createElement('input');
+    upi_id.style.width = '50%';
+    upi_id.style.border = 'none';
+    upi_id.style.boxShadow = '0px 2px 2px 2px rgba(0, 0, 0, 0.2)';
+    upi_id.style.padding = '0.5rem'; 
+    upi_id.style.borderRadius = '0.2rem';
+    upi_id.placeholder = "ex. abc@oksbi";
+
+    let h1 = document.createElement('h1');
+    h1.innerText = "";
+    
+    let btn  = document.createElement('button');
+    btn.setAttribute('class' , 'pay');
+    // btn.style.marginLeft = '0.5rem';
+    // btn.style.padding = '0.5rem';
+    // btn.style.border = 'none';
+    // btn.style.background = '#6a3c97';
+    // btn.style.boxShadow = '0px 2px 2px 2px rgba(0, 0, 0, 0.2)';
+    // btn.style.color = "#fff";
+    // btn.style.borderRadius = '0.2rem';
+    btn.innerText = `PAY \u00A0 ₹${pay_price}`;
+    btn.addEventListener('click', payBtn);
+   
+
+    let logo_div = document.createElement('div');
+    let image  = document.createElement('img');
+    image.setAttribute('class' , 'image_logo')
+    image.src = '../money-wallet.png';
+    logo_div.append(image)
+
+    div.append(logo,h1,upi_id,btn);
+    container.append(div,logo_div);
+   
+
+    generetingBill();
+  }
+
+
+  function phonePay_btn(){
+    let container = document.querySelector("#paymentDetails");
+    container.innerHTML = " ";
+
+    let div = document.createElement('div');
+    let logo = document.createElement('img');
+    logo.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7J7DZl2rGzLh4adXCVwW6zTA724O1y27X4Q&usqp=CAU";
+    
+    let upi_id = document.createElement('input');
+    upi_id.style.width = '50%';
+    upi_id.style.border = 'none';
+    upi_id.style.boxShadow = '0px 2px 2px 2px rgba(0, 0, 0, 0.2)';
+    upi_id.style.padding = '0.5rem'; 
+    upi_id.style.borderRadius = '0.2rem';
+    upi_id.placeholder = "ex. abc@oksbi";
+
+    let h1 = document.createElement('h1');
+    h1.innerText = "";
+    
+    let btn  = document.createElement('button');
+    btn.setAttribute('class' , 'pay');
+    // btn.style.marginLeft = '0.5rem';
+    // btn.style.padding = '0.5rem';
+    // btn.style.border = 'none';
+    // btn.style.background = '#6a3c97';
+    // btn.style.boxShadow = '0px 2px 2px 2px rgba(0, 0, 0, 0.2)';
+    // btn.style.color = "#fff";
+    // btn.style.borderRadius = '0.2rem';
+    btn.innerText = `PAY  \u00A0 ₹${pay_price}`;
+    btn.addEventListener('click', payBtn);
+   
+
+    let logo_div = document.createElement('div');
+    let image  = document.createElement('img');
+    image.setAttribute('class' , 'image_logo')
+    image.src = '../money-wallet.png';
+    logo_div.append(image)
+
+    div.append(logo,h1,upi_id,btn);
+    container.append(div,logo_div);
+
+    generetingBill();
+  }
+
+
+
+
+  function payTm_btn(){
+     let container = document.querySelector("#paymentDetails");
+    container.innerHTML = " ";
+
+    let div = document.createElement('div');
+    let logo = document.createElement('img');
+    logo.src="/paytm background.png";
+    
+    let upi_id = document.createElement('input');
+    upi_id.style.width = '50%';
+    upi_id.style.border = 'none';
+    upi_id.style.boxShadow = '0px 2px 2px 2px rgba(0, 0, 0, 0.2)';
+    upi_id.style.padding = '0.5rem'; 
+    upi_id.style.borderRadius = '0.2rem';
+    upi_id.placeholder = "ex. abc@oksbi";
+
+    let h1 = document.createElement('h1');
+    h1.innerText = "";
+    
+    let btn  = document.createElement('button');
+    btn.setAttribute('class' , 'pay');
+    // btn.style.marginLeft = '0.5rem';
+    // btn.style.padding = '0.5rem';
+    // btn.style.border = 'none';
+    // btn.style.background = '#6a3c97';
+    // btn.style.boxShadow = '0px 2px 2px 2px rgba(0, 0, 0, 0.2)';
+    // btn.style.color = "#fff";
+    // btn.style.borderRadius = '0.2rem';
+    btn.innerText = `PAY \u00A0  ₹${pay_price}`;
+    btn.addEventListener('click', payBtn);
+   
+
+    let logo_div = document.createElement('div');
+    let image  = document.createElement('img');
+    image.setAttribute('class' , 'image_logo')
+    image.src = '../money-wallet.png';
+    logo_div.append(image)
+
+    div.append(logo,h1,upi_id,btn);
+    container.append(div,logo_div);
+
+    generetingBill();
+  }
+
+
+  function cod_btn(){
+    let container = document.querySelector("#paymentDetails");
+    container.innerHTML = " ";
+
+    let div = document.createElement('div');
+    let h1 = document.createElement('h1');
+    h1.innerText = 'Cash/Pay on Delivery';
+    h1.style.color="#6a3c97"
+    let p = document.createElement('p');
+    p.innerText = 'Pay cash at time of delivery. You can also pay online anytime after placing order.';
+    p.style.color = "#6a3c97"
+    p.style.marginBottom='1rem'
+    let btn1  = document.createElement('button');
+    btn1.setAttribute('class' , 'pay');
+    btn1.addEventListener('click', payBtn);
+    btn1.innerText = `PAY  \u00A0 ₹${pay_price}`;
+    let btn2  = document.createElement('button');
+    btn2.addEventListener('click', payBtn);
+    btn2.setAttribute('class' , 'pay');
+    btn2.innerText = `Place Order`;
+    div.append(h1,p,btn1,"Or",btn2)
+
+
+
+
+    let logo_div = document.createElement('div');
+    let image  = document.createElement('img');
+    image.setAttribute('class' , 'image_logo')
+    image.src = '../money-wallet.png';
+    logo_div.append(image)
+
+   
+    container.append(div,logo_div);
+
+
+    // container.append(div);
+
+    generetingBill();
+  }
+
+  // payBtn()
+
+function payBtn(){
+  console.log("hello boton");
+  document.querySelector('#address_container').style.opacity = 0.5;
+  
+  setTimeout(()=>{
+     document.querySelector('#address_container').innerHTML = " ";
+     document.querySelector('nav').innerHTML = " ";
+     let div = document.createElement('div');
+     div.setAttribute('class', 'floating-div');
+     let h1 = document.createElement('h1');
+     h1.innerText = `Congratulation!`;
+     let p = document.createElement('p');
+     p.innerText = `We have received your payment. Stay back and relax, Your bill is generating..`;
+     
+     let icon = document.createElement('img');
+     icon.src = '../card-machine.png';
+     icon.style.width= '35%';
+     icon.style.marginLeft = '40%';
+     icon.style.marginTop = '5%';
+
+     document.querySelector('#address_container').style.opacity = 1;
+     div.append(h1,p,icon);
+     document.querySelector('#address_container').append(div);
+
+     setTimeout(()=> {
+      window.location.href = "../HTML/checkoutpage.html";
+     },3000)
+
+  },2000);
+}
+
+// generetingBill();
+
+function generetingBill(){
+  const uniqueKey = localStorage.getItem('uniqueKey');
+  let address_data = JSON.parse(localStorage.getItem('selectedAddress'));
+        addresID = address_data.addressId;
+  
+        fetch(`https://ziptip-production.up.railway.app/getorders?key=${uniqueKey}&id=${addresID}`,{
+          mode : 'no-cors',
+          method : 'POST'
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(err => console.log(err));
+
+}
+
+
+
+</script>

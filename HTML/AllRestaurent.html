@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Restaurent</title>
+  <link rel="stylesheet" href="../CSS/nav.css">
+  <link rel="stylesheet" href="../CSS/AllRestaurent.css">
+  <style>
+    
+  #user_details{
+  width: 29%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+
+  #user_details, #user_details div{
+  display: flex;
+  align-items: center;
+ } 
+
+ #user_details img{
+  width: 50px;
+  height: 50px;
+ }
+
+ #user_details div{
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 0.7rem;
+  background-color: #4d2b6e;
+  border-radius: 0.3rem;
+  box-shadow: rgba(20, 20, 20, 0.61) 0px 3px 8px;
+  transition: all 0.2s ease-in-out;
+ }
+
+ #user_details div:hover{
+ transform: scale(1.1);
+ }
+  </style>
+</head>
+
+<body>
+  <div id="background-image">
+
+  </div>
+  <header>
+    <nav>
+      <div></div>
+      <div id="user_details">
+        <!-- <a></a> -->
+
+        <a href="/index.html" onclick="toggleLogin()" id="user-key">Register</a>
+
+        <a href=""> User</a>
+      </div>
+    </nav>
+    <div id="logo-back">
+      <div class="logo">
+        ZipTip
+      </div>
+    </div>
+
+    <!-- <div id="search">
+          <input type="search" name="" class="search-item" placeholder="Search Your Favorite Restaurent,Dish..">
+        </div> -->
+  </header>
+
+
+
+
+  <div id="product-grid"></div>
+
+
+  <script src="../Script/allRestauernt.js"></script>
+  <script src="../Script/login.js"></script>
+</body>
+
+</html>

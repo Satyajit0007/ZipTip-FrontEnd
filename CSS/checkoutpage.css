@@ -1,0 +1,200 @@
+
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
+
+        * {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #e0d3ec1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'poppins';
+            flex-direction: column;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            color: #240a3d;
+        }
+
+        body #bill_container {
+            display: flex;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+
+        #bill {
+            background-image: url(/background-offer-list.jpg);
+            background-size: cover;
+
+        }
+
+        #bill,
+        #left {
+
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            background-color: #fff;
+
+        }
+
+        #left {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: space-between;
+            height: 90vh;
+
+        }
+
+        #left a {
+            border: none;
+            padding: 0.8rem 3rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: #ccb0e675;
+            color: #6f4399;
+        }
+
+        #left a:hover {
+            background-color: #6f4399;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #left img {
+            width: 60%;
+            position: relative;
+            animation-name: float;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+
+        }
+
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(0, 20px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        #bill div {
+            text-align: center;
+        }
+
+        .cartDiv {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            flex-direction: column;
+        }
+
+        .cartDiv div {
+            border-bottom: 1px solid #693c974d;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0rem 0.5rem;
+        }
+
+        h3 {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .bill-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .bill-label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .bill-value {
+            font-size: 16px;
+        }
+
+        .address {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .contact {
+            font-size: 16px;
+        }
+
+        .total {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+
+        nav .logo {
+            font-size: 4rem;
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.2rem;
+            background: linear-gradient(45deg, rgb(141, 48, 204) 50%, #471e6d 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 3;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            50% {
+                transform: rotateY(360deg);
+            }
+            100%{
+                transform: rotateY(0deg);
+            }
+        }
+  
