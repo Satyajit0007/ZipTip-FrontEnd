@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Secure Payment</title>
-  <link rel="stylesheet" href="/ZipTip-FrontEnd/CSS/payment.css">
+  <link rel="stylesheet" href="/CSS/payment.css">
  
 </head>
 
@@ -14,7 +14,7 @@
   <nav> Secure Payment</nav>
   <div id="payment_page">
     <div id="address_container" style="width: 70%; ">
-      <img src="/ZipTip-FrontEnd/house-location.png" style="width:80px;  position: absolute; top: -0.5rem;left:1rem;" alt="">
+      <img src="/house-location.png" style="width:80px;  position: absolute; top: -0.5rem;left:1rem;" alt="">
       <h3 style="margin-left:5rem">  Choose a delivery address</h3>
       <p style="margin-left:5rem">Multiple addresses in this location</p>
       <div id="address" style="margin-left:1rem; margin-top: 1rem;">
@@ -39,33 +39,33 @@
       </div>
       
       <div id="payment">
-        <img src="/ZipTip-FrontEnd//cash-wallet.png " style="width:80px;  position: relative; top:3.5rem;left:-1rem;" alt="">
+        <img src="/cash-wallet.png " style="width:80px;  position: relative; top:3.5rem;left:-1rem;" alt="">
         <h3 style="margin-left:4rem;">  Choose payment method</h3>
         <div id="payment_method" style="margin-left: 2rem;margin-top: 2rem;">
           <div id="payment_type">
             <a href=""></a>
-            <div onclick="gpay_btn()" style="background: url(/ZipTip-FrontEnd/Untitled\ design.png);background-size: cover;">
+            <div onclick="gpay_btn()" style="background: url(/Untitled\ design.png);background-size: cover;">
             
             
             </div>
             <div onclick="phonePay_btn()" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7J7DZl2rGzLh4adXCVwW6zTA724O1y27X4Q&usqp=CAU);  background-size: cover;">
               
             </div>
-            <div onclick="payTm_btn()"  style="background: url(/ZipTip-FrontEnd/paytm\ background.png);  background-size: cover;">
+            <div onclick="payTm_btn()"  style="background: url(/paytm\ background.png);  background-size: cover;">
             </div>
-            <div onclick="cod_btn()"  style="background: url(/ZipTip-FrontEnd/COD\ back-555.gif);  background-size: cover;"></div>
+            <div onclick="cod_btn()"  style="background: url(/COD\ back-555.gif);  background-size: cover;"></div>
           </div>
           <div id="selected_payment">
             <div id="paymentDetails">
               <div style="display: flex; justify-content:center;align-items: center;">
                 
-                <img src="/ZipTip-FrontEnd/lock gif.gif" alt="">
+                <img src="/lock gif.gif" alt="">
                 <p style="padding: 1rem 2rem;font-weight: 500;">Easy, Quick and Secure Payment</p>
               </div>
              
               <div style="display: flex; justify-content: center;align-items: center; margin-top: 6rem;">
                 <p style=" color : #fff;padding: 1rem 2rem; font-weight: 500;">Fastest Delivery at Your Door Step</p>
-                <img src="/ZipTip-FrontEnd/delevery gif.gif" alt="">
+                <img src="/delevery gif.gif" alt="">
               </div>
              </div>
           </div>
@@ -267,7 +267,7 @@ let pay_price;
       let div1 = document.createElement('div');
       
       let icon = document.createElement('img');
-      icon.src = '/ZipTip-FrontEnd/bags-bucket.png';
+      icon.src = '/bags-bucket.png';
       icon.style.width= '50%';
       icon.style.marginTop = '50%';
       icon.style.marginLeft = "25%"
@@ -435,7 +435,7 @@ updateAddressUI();
     container.innerHTML = " ";
     let div = document.createElement('div');
     let logo = document.createElement('img');
-    logo.src="/ZipTip-FrontEnd/Untitled\ design.png";
+    logo.src="/Untitled\ design.png";
     
     let upi_id = document.createElement('input');
     upi_id.style.width = '50%';
@@ -464,7 +464,7 @@ updateAddressUI();
     let logo_div = document.createElement('div');
     let image  = document.createElement('img');
     image.setAttribute('class' , 'image_logo')
-    image.src = '../money-wallet.png';
+    image.src = '/money-wallet.png';
     logo_div.append(image)
 
     div.append(logo,h1,upi_id,btn);
@@ -510,7 +510,7 @@ updateAddressUI();
     let logo_div = document.createElement('div');
     let image  = document.createElement('img');
     image.setAttribute('class' , 'image_logo')
-    image.src = '/ZipTip-FrontEnd/money-wallet.png';
+    image.src = '/money-wallet.png';
     logo_div.append(image)
 
     div.append(logo,h1,upi_id,btn);
@@ -528,7 +528,7 @@ updateAddressUI();
 
     let div = document.createElement('div');
     let logo = document.createElement('img');
-    logo.src="/ZipTip-FrontEnd/paytm background.png";
+    logo.src="/paytm background.png";
     
     let upi_id = document.createElement('input');
     upi_id.style.width = '50%';
@@ -557,7 +557,7 @@ updateAddressUI();
     let logo_div = document.createElement('div');
     let image  = document.createElement('img');
     image.setAttribute('class' , 'image_logo')
-    image.src = '/ZipTip-FrontEnd/money-wallet.png';
+    image.src = '/money-wallet.png';
     logo_div.append(image)
 
     div.append(logo,h1,upi_id,btn);
@@ -595,7 +595,7 @@ updateAddressUI();
     let logo_div = document.createElement('div');
     let image  = document.createElement('img');
     image.setAttribute('class' , 'image_logo')
-    image.src = '/ZipTip-FrontEnd/money-wallet.png';
+    image.src = '/money-wallet.png';
     logo_div.append(image)
 
    
@@ -624,7 +624,7 @@ function payBtn(){
      p.innerText = `We have received your payment. Stay back and relax, Your bill is generating..`;
      
      let icon = document.createElement('img');
-     icon.src = '/ZipTip-FrontEnd/card-machine.png';
+     icon.src = '/card-machine.png';
      icon.style.width= '35%';
      icon.style.marginLeft = '40%';
      icon.style.marginTop = '5%';
@@ -634,7 +634,7 @@ function payBtn(){
      document.querySelector('#address_container').append(div);
 
      setTimeout(()=> {
-      window.location.href = "/ZipTip-FrontEnd/HTML/checkoutpage.html";
+      window.location.href = "/HTML/checkoutpage.html";
      },3000)
 
   },2000);

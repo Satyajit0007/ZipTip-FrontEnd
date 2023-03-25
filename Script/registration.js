@@ -4,7 +4,7 @@ const uniqueKey =  (localStorage.getItem('uniqueKey'));
 function reload(){
 
 if(uniqueKey){
-  window.location.href = "/ZipTip-FrontEnd/HTML/AllRestaurent.html";
+  window.location.href = "/HTML/AllRestaurent.html";
  return; 
 }
 

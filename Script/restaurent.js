@@ -199,7 +199,7 @@ h3.innerText = "Cart is Emplty";
 let div = document.createElement('div');
 
 let image = document.createElement('img');
-image.src = "../no-results.png";
+image.src = "/no-results.png";
 image.style.width =  '300px'
 div.append(image);
 document.querySelector("#cart").append(h3,div);
@@ -227,7 +227,7 @@ function proceed() {
         })
     })
 
-    window.location.href ="/ZipTip-FrontEnd/HTML/Payment.html";
+    window.location.href ="/HTML/Payment.html";
 }
 
   
@@ -302,7 +302,7 @@ function userNameUpdateUI(data){
     button.style.cursor = 'pointer';
     button.style.marginLeft= '60%';
     button.addEventListener('click',()=> {
-      window.location.href= "/ZipTip-FrontEnd/index.html";
+      window.location.href= "/index.html";
     })
     container.append(button);
 return;
@@ -312,21 +312,21 @@ return;
 
 
   let userIcon = document.createElement('img');
-  userIcon.src= "/ZipTip-FrontEnd/user.png"
+  userIcon.src= "/user.png"
   let name = document.createElement('p');
   name.innerText = data.name;
   let userdiv = document.createElement('div');
   userdiv.append(userIcon,name);
 
   let orderIcon = document.createElement('img');
-  orderIcon.src = "/ZipTip-FrontEnd/file.png";
+  orderIcon.src = "/file.png";
   let order = document.createElement('p');
   order.innerText = 'Orders';
   let orderdiv = document.createElement('div');
   orderdiv.append(orderIcon,order);
 
   let callIcon = document.createElement('img');
-  callIcon.src = "/ZipTip-FrontEnd/calling-app.png";
+  callIcon.src = "/calling-app.png";
   let restaurentContact = document.createElement('p');
   restaurentContact.innerText = 'Call Restaurent';
   let calldiv = document.createElement('div');
