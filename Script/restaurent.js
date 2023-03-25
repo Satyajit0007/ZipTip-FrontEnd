@@ -1,4 +1,4 @@
-  const restaurent_item_api = `https://ziptip-production.up.railway.app/allProduct/${localStorage.getItem('restaurentId')}`
+  const restaurent_item_api = `https://ziptipapi-production.up.railway.app/allProduct/${localStorage.getItem('restaurentId')}`
 
   fetch(restaurent_item_api, {
     // mode : 'no-cors',
@@ -217,7 +217,7 @@ function proceed() {
     let uuid= (localStorage.getItem('uniqueKey'));
     let cartItem = JSON.parse(localStorage.getItem('cart'));
     cartItem.forEach(el=> {
-        const cart_api =  `https://ziptip-production.up.railway.app/addtocart?key=${uuid}&id=${el.itemId}&qty=${el.qnty}`;
+        const cart_api =  `https://ziptipapi-production.up.railway.app/addtocart?key=${uuid}&id=${el.itemId}&qty=${el.qnty}`;
         fetch(cart_api, {
             mode : 'no-cors',
             method : 'POST',
@@ -227,13 +227,13 @@ function proceed() {
         })
     })
 
-    window.location.href ="../HTML/Payment.html";
+    window.location.href ="/ZipTip-FrontEnd/HTML/Payment.html";
 }
 
   
 ////////////////  Updating Restaurent UI /////////
 
-let restaurentById = `https://ziptip-production.up.railway.app/restaurents/${localStorage.getItem('restaurentId')}`
+let restaurentById = `https://ziptipapi-production.up.railway.app/restaurents/${localStorage.getItem('restaurentId')}`
 
 fetch(restaurentById,{
   // mode : 'no-cors',
@@ -272,7 +272,7 @@ function updateRestaurentUI(el){
 
 let uuid= (localStorage.getItem('uniqueKey'));
 
-fetch(`https://ziptip-production.up.railway.app/users/${uuid}`,{
+fetch(`https://ziptipapi-production.up.railway.app/users/${uuid}`,{
   // mode : 'no-cors',
   method : 'GET'
 }).then(res => res.json())
@@ -302,7 +302,7 @@ function userNameUpdateUI(data){
     button.style.cursor = 'pointer';
     button.style.marginLeft= '60%';
     button.addEventListener('click',()=> {
-      window.location.href= "/index.html";
+      window.location.href= "/ZipTip-FrontEnd/index.html";
     })
     container.append(button);
 return;
@@ -312,21 +312,21 @@ return;
 
 
   let userIcon = document.createElement('img');
-  userIcon.src= "../user.png"
+  userIcon.src= "/ZipTip-FrontEnd/user.png"
   let name = document.createElement('p');
   name.innerText = data.name;
   let userdiv = document.createElement('div');
   userdiv.append(userIcon,name);
 
   let orderIcon = document.createElement('img');
-  orderIcon.src = "../file.png";
+  orderIcon.src = "/ZipTip-FrontEnd/file.png";
   let order = document.createElement('p');
   order.innerText = 'Orders';
   let orderdiv = document.createElement('div');
   orderdiv.append(orderIcon,order);
 
   let callIcon = document.createElement('img');
-  callIcon.src = "../calling-app.png";
+  callIcon.src = "/ZipTip-FrontEnd/calling-app.png";
   let restaurentContact = document.createElement('p');
   restaurentContact.innerText = 'Call Restaurent';
   let calldiv = document.createElement('div');

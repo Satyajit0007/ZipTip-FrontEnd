@@ -1,4 +1,4 @@
-const product_api = "https://ziptip-production.up.railway.app/restaurents";
+const product_api = "https://ziptipapi-production.up.railway.app/restaurents";
                   
                   
 fetch(product_api , {
@@ -37,7 +37,7 @@ function append(data) {
 
     div.addEventListener("click" , ()=>{
       localStorage.setItem('restaurentId', el.adminId);
-      window.location.href ="../HTML/Restaurent.html";
+      window.location.href ="/ZipTip-FrontEnd/HTML/Restaurent.html";
 
     })
 
@@ -50,7 +50,7 @@ function append(data) {
 
 let uuid= (localStorage.getItem('uniqueKey'));
 
-fetch(`https://ziptip-production.up.railway.app/users/${uuid}`,{
+fetch(`https://ziptipapi-production.up.railway.app/users/${uuid}`,{
  
   method : 'GET',
 
@@ -82,7 +82,7 @@ function userNameUpdateUI(data){
     button.style.cursor = 'pointer';
     button.style.marginLeft= '60%'
     button.addEventListener('click',()=> {
-      window.location.href= "/index.html";
+      window.location.href= "/ZipTip-FrontEnd/index.html";
     })                        
     container.append(button);
 return;
@@ -92,14 +92,14 @@ return;
 
 
   let userIcon = document.createElement('img');
-  userIcon.src= "../user.png"
+  userIcon.src= "/ZipTip-FrontEnd/user.png"
   let name = document.createElement('p');
   name.innerText = data.name;
   let userdiv = document.createElement('div');
   userdiv.append(userIcon,name);
 
   let orderIcon = document.createElement('img');
-  orderIcon.src = "../file.png";
+  orderIcon.src = "/ZipTip-FrontEnd/file.png";
   let order = document.createElement('p');
   order.innerText = 'Orders';
   let orderdiv = document.createElement('div');

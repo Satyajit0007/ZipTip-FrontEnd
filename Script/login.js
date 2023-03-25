@@ -1,4 +1,4 @@
-const Login_api = "https://ziptip-production.up.railway.app/userlogin";
+const Login_api = "https://ziptipapi-production.up.railway.app/userlogin";
 
 
 
@@ -21,7 +21,6 @@ function loginBtn(e) {
    fetch(Login_api, {
       
       method : "POST",
-      mode : 'no-cors',
       body :  JSON.stringify(UserData),
       headers : {
         "Content-Type" : "application/json"
@@ -48,7 +47,7 @@ function loginBtn(e) {
       localStorage.setItem('uniqueKey', data.uuid)
     
     }
-    window.location.href = '../HTML/AllRestaurent.html';
+    window.location.href = '/ZipTip-FrontEnd/HTML/AllRestaurent.html';
    })
    .catch(err=> console.log(err));
 

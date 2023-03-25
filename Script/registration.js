@@ -1,10 +1,10 @@
-const register_api = "https://ziptip-production.up.railway.app/users";
+const register_api = "https://ziptipapi-production.up.railway.app/users";
 const uniqueKey =  (localStorage.getItem('uniqueKey'));
 
 function reload(){
 
 if(uniqueKey){
-  window.location.href = "../HTML/AllRestaurent.html";
+  window.location.href = "/ZipTip-FrontEnd/HTML/AllRestaurent.html";
  return; 
 }
 
