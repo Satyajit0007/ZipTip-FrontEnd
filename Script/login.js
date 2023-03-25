@@ -19,7 +19,7 @@ function loginBtn(e) {
    
    
    fetch(Login_api, {
-      
+      mode : 'no-cors',
       method : "POST",
       body :  JSON.stringify(UserData),
       headers : {
@@ -49,7 +49,10 @@ function loginBtn(e) {
     }
     window.location.href = '/HTML/AllRestaurent.html';
    })
-   .catch(err=> console.log(err));
+   .catch(err=> {
+    console.log(err)
+   alert("There is some Error from our Side, Wait for a moment")
+  });
 
 }
 
