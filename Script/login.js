@@ -46,7 +46,7 @@ function loginBtn(e) {
       localStorage.setItem('uniqueKey', data.uuid)
     
     }
-    window.location.href = '/ZipTip-FrontEnd/HTML/AllRestaurent.html';
+    window.location.href = '/HTML/AllRestaurent.html';
      alert("Successfully Login");
    })
    .catch(err=> {
