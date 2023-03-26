@@ -54,7 +54,6 @@ function registerBtn(e) {
     async function postDataAndReload(register_api, RegisterUserData) {
       try {
         const response = await fetch(register_api, {
-          mode : 'no-cors',
           method: "POST",
           body: JSON.stringify(RegisterUserData),
           headers: {
