@@ -47,7 +47,7 @@ function loginBtn(e) {
       localStorage.setItem('uniqueKey', data.uuid)
     
     }
-    window.location.href = '/HTML/AllRestaurent.html';
+    window.location.href = 'https://ziptip-frontend-production.up.railway.app/HTML/AllRestaurent.html';
    })
    .catch(err=> {
     console.log(err)
