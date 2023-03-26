@@ -51,7 +51,7 @@ function loginBtn(e) {
    })
    .catch(err=> {
     console.log(err)
-   alert("There is some Error from our Side, Wait for a moment")
+//    alert("There is some Error from our Side, Wait for a moment")
   });
 
 }
