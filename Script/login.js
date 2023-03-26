@@ -14,12 +14,11 @@ function loginBtn(e) {
   
 
  
-    form.phone.value =" ";
-    form.pass.value =" ";
+    form.phone.value = " ";
+    form.pass.value = " ";
    
    
    fetch(Login_api, {
-      mode : 'no-cors',
       method : "POST",
       body :  JSON.stringify(UserData),
       headers : {
@@ -47,11 +46,12 @@ function loginBtn(e) {
       localStorage.setItem('uniqueKey', data.uuid)
     
     }
-    window.location.href = 'https://ziptip-frontend-production.up.railway.app/HTML/AllRestaurent.html';
+    window.location.href = '/ZipTip-FrontEnd/HTML/AllRestaurent.html';
+     alert("Successfully Login");
    })
    .catch(err=> {
     console.log(err)
-
+   alert("There is some Error from our Side, Wait for a moment");
   });
 
 }
