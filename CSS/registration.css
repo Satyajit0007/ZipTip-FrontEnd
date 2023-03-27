@@ -209,4 +209,32 @@ button[type="submit"] {
     transition: background-color .5s ease-in-out;
   }
   
+
+ 
+#name-error,#phone-error,#pass-error,#cpass-error{
+   font-size: 0.8rem;
+   color: #412061;
+   font-weight: 600;
+}
+
+/* Style for modern browsers */
+input::placeholder {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+/* Style for older browsers */
+input:-ms-input-placeholder {
+  color: #999;
+  font-size: 0.8rem;
+}
+input::-ms-input-placeholder {
+  color: #999;
+  font-size: 0.8rem;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+  font-size: 0.8rem;
+}
+
   
