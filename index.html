@@ -50,29 +50,34 @@
 
             <form  id="register-data" action="">
                 <h2>Register</h2>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+            <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full anme"  required >
+                    <span id="name-error"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your valid email address" required>
+                    <span id="email-error"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your mobile number"  required>
+                    <span id="phone-error"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="pass">Password</label>
-                    <input type="password" id="pass" name="pass" required>
+                    <input type="password" id="pass" name="pass" placeholder="Create a password" required>
+                    <span id="pass-error"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="cpass">Confirm Password</label>
-                    <input type="password" id="cpass" name="cpass" required>
+                    <input type="password" id="cpass" name="cpass" placeholder="Confirm your password" required>
+                    <span id="cpass-error"></span>
                 </div>
 
                 <button type="submit" class="success-btn" onclick="registerBtn(event)">Register</button>
