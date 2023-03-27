@@ -1,20 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'poppins';
     background: linear-gradient(20deg, white 47%,  #412061 30%,  #9677cf 70%, #6a3c97 100%);
 
 }
-
-
 
 
 .form-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
     margin: 0rem  5rem;
    
 }
+
 #left {
     position: relative;
     z-index: 1;
@@ -53,6 +53,8 @@ body {
     transform: translate(-50%, -50%);
     animation: float 3s ease-in-out infinite;
   }
+
+
   .bubble5 {
     position: absolute;
     z-index: -2;
@@ -167,7 +169,7 @@ form h2 {
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
 }
 
 .form-group label {
@@ -203,14 +205,14 @@ button[type="submit"] {
     transition: background-color .5s ease-in-out;
   }
   
+
   button[type="submit"]:hover {
     background-color:  #6F48B6;
     transform: scale(1.1);
     transition: background-color .5s ease-in-out;
   }
   
-
- 
+  
 #name-error,#phone-error,#pass-error,#cpass-error{
    font-size: 0.8rem;
    color: #412061;
@@ -237,4 +239,14 @@ input::-webkit-input-placeholder {
   font-size: 0.8rem;
 }
 
-  
+input{
+  outline: none;
+}
+
+.form-group label{
+  border-left: 5px solid #a78fbe;
+  padding-left: 0.3rem;
+  color: #412061;
+  font-weight: 600;
+}
+
