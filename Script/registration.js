@@ -19,33 +19,43 @@ function registerBtn(e) {
   let mobileNo = form.phone.value;
   let password = form.pass.value;
  
-  var nameRegex = /^[a-zA-Z ]*$/;
+   var nameRegex = /^[a-zA-Z ]{3,20}$/;
   var phoneRegex = /^[0-9]{10}$/;
   var passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{6,12}$/;
 
-  // Validate name field
+   // Validate name field
   if (!nameRegex.test(name)) {
-      alert("Name must not contain numbers or special characters.");
+      if(name.length < 3){
+        document.querySelector('#name-error').innerHTML = "**Name must have 3 character atleast";
+        document.querySelector('#name').style.borderBottom = "2px solid #120420"
+        return;
+      }
+      document.querySelector('#name-error').innerHTML = "**Name must not contain numbers or special characters"
+      document.querySelector('#name').style.borderBottom = "2px solid #120420";
       return;
   }
 
   // Validate phone field
   if (!phoneRegex.test(mobileNo)) {
-      alert("Mobile number must have 10 digits.");
+
+      document.querySelector('#phone').innerHTML = "**Mobile number must have 10 digits"
+      document.querySelector('#name').style.borderBottom = "2px solid #120420";
       return;
   }
 
   // Validate password field
   if (!passRegex.test(password)) {
-      alert("Password should be alphanumeric and must contain 6-12 characters having at least one special character, one upper case, one lowercase, and one digit.");
-      return;
+    document.querySelector('#pass').innerHTML =("**6-12 characters, 1 special character, 1 upper case, 1 lowercase,1 digit");
+    document.querySelector('#pass').style.borderBottom = "2px solid #120420"; 
+    return;
   }
 
   // Validate confirm password field
-  // if (pass !== cpass) {
-  //     alert("Confirm password must match to password.");
-  //     return;
-  // }
+  if (password !== confirm_password) {
+    document.querySelector('#cpass-error').innerHTML =("Confirm password must match to password.");
+    document.querySelector('#cpass').style.borderBottom = "2px solid #120420";
+    return;
+  }
 
    
   let RegisterUserData = new RegisterUser( email, mobileNo, name, password);
