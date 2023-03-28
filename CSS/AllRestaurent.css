@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
 *{
-    font-family: 'poppins';
+    font-family: 'Poppins';
 }
 
 header {
@@ -11,7 +12,6 @@ header {
   flex-direction: column;
   height: 90vh;
   width: 100%;
-
 }
 
 #background-image{
@@ -20,8 +20,6 @@ header {
     filter: blur(3px);
     background-size: cover;
     background-repeat: no-repeat;
-
-   
 }
 
 
@@ -60,17 +58,17 @@ nav a {
   z-index: 3;
 }
 
-/* #logo-back{
-/* background-color: rgba(0, 0, 0, 0.315); */
-/* border-radius: 1rem;
-padding: 0rem 2rem;
-line-height: 6.2rem;
-display: flex;
-justify-content: center;
-align-items: center;
-} */ 
+#logo-back{
+  text-align: center;
 
+}
 
+#logo-back p{
+  color: #fff;
+  font-weight: 600;
+  font-size: 2rem;
+  font-style: italic;
+}
 
 #search {
   display: flex;
@@ -93,7 +91,7 @@ align-items: center;
   grid-gap: 30px;
   margin-top: 30px;
   padding: 3rem;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  /* box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; */
 }
 
 .product {
@@ -130,9 +128,12 @@ align-items: center;
   color: gray;
 }
 
+
+
 .product h3 {
   font-size: 22px;
   font-weight: bold;
   color: green;
 }
  
+
